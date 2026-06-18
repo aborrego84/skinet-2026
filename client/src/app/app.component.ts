@@ -1,9 +1,10 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./layout/header/header.component";
-import { HttpClient } from '@angular/common/http';
 import { Product } from './shared/models/product';
-import { Pagination } from './shared/models/pagination';
+import { ShopService } from './core/services/shop.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -15,16 +16,15 @@ import { Pagination } from './shared/models/pagination';
 })
 export class App  implements OnInit{
   //protected readonly title = signal('client');
- title = "Skinet";
- baseUrl ='https://localhost:5001/api/';
- private http = inject(HttpClient);
+ title = "Skinet"; 
  products: Product[] = [];
+ shopService= inject(ShopService);
 
  ngOnInit(): void {
-   this.http.get<Pagination<Product>>(this.baseUrl + 'products').subscribe({
+   this.shopService.GetProducts().subscribe({
     next: response => this.products = response.data,
-    error: error => console.log(error),
-    complete: () => console.log('complete')
+    error: error => console.log(error)
+    
    })
  }
   
