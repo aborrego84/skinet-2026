@@ -14,6 +14,13 @@
       background-color: blue    
   ));
 }
+// If placed in your global styles.scss
+.match-input-height {
+  //height : var(--mat-form-field-container-height, 56px)  !important;
+  height : var(--mat-form-field-container-height)  !important;
+     // Replace with your explicit pixel height
+  
+}
 
 html {
   height: 100%;
@@ -27,6 +34,7 @@ html {
       density: 0,
     )
   );
+  
 }
 
 body {
