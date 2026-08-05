@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { CartService } from '../../core/services/cart.service';
 import { CarItemComponent } from "./car-item/car-item.component";
 import { OrderSummaryComponent } from "../../shared/components/order-summary/order-summary.component";
+import { EmptyStateComponent } from "../../shared/components/empty-state/empty-state.component";
 
 @Component({
   selector: 'app-cart',
-  imports: [CarItemComponent, OrderSummaryComponent],
+  imports: [CarItemComponent, OrderSummaryComponent, EmptyStateComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
 })
